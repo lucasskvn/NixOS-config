@@ -1,0 +1,5 @@
+[safe]
+	directory = /etc/nixos
+[user]
+	name = lucasskvn
+	email = lucas.sangkhavongs@epitech.eu
