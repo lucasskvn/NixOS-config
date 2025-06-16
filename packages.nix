@@ -1,0 +1,48 @@
+{ pkgs }:
+
+with pkgs; [
+    os-prober
+    vim
+    firefox
+    neovim
+    proton-pass
+    git
+    discord
+    spotify
+    spicetify-cli
+    kitty
+    thunderbird
+    zsh
+    oh-my-zsh
+    (pkgs.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+    )
+    pkgs.dunst
+    libnotify
+    swww
+    rofi-wayland
+    nitrogen
+    arandr
+    gnumake
+    libgccjit
+    ripgrep
+    mesa
+    libglvnd
+    wayland-utils
+    networkmanager
+    playerctl
+    brightnessctl
+    pamixer
+    nwg-look
+    pkgs.catppuccin-cursors
+    hyprcursor
+    hyprshot
+    hyprpaper
+    hyprlock
+    vscode
+    emacs
+    nfs-utils
+    rsync
+    wget
+]
