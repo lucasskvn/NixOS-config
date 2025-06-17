@@ -8,4 +8,5 @@
   home.file.".config/rofi".source = /etc/nixos/config/rofi;
   home.file.".config/waybar".source = /etc/nixos/config/waybar;
   home.file.".gitconfig".source = /etc/nixos/config/.gitconfig;
+  home.file.".p10k.zsh".source = /etc/nixos/config/.p10k.zsh;
 }

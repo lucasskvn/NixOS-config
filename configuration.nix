@@ -28,4 +28,9 @@
 
   # Version NixOS
   system.stateVersion = "25.05";
+
+  # Variables d'environnement
+  environment.variables = {
+    NIXOS_OZONE_WL = "1";
+  };
 }

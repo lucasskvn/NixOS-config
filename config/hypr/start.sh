@@ -2,9 +2,9 @@
 
 pkill waybar
 
-swww init &
+rm -rf ~/.cache/spotify 
 
-swww img ~/Wallpapers/wall.jpg &
+swww init &
 
 waybar &
 

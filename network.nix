@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  networking.hostName = "lucasskvnnixos";
+  networking.hostName = "virtualangel";
   networking.networkmanager.enable = true;
 }

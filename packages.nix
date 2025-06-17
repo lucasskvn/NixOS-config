@@ -22,6 +22,7 @@ with pkgs; [
     libnotify
     swww
     rofi-wayland
+    rofi-power-menu
     nitrogen
     arandr
     gnumake
@@ -45,4 +46,18 @@ with pkgs; [
     nfs-utils
     rsync
     wget
+    lazygit
+    gcc
+    mpv
+    spotifyd
+    neofetch
+    jp2a
+    imagemagick
+    chafa
+    catimg
+    jellyfin-tui
+    jellyfin
+    jftui
+    veracrypt
+    obsidian
 ]
