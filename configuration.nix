@@ -33,4 +33,9 @@
   environment.variables = {
     NIXOS_OZONE_WL = "1";
   };
+
+  # Ajout de la configuration de la collecte automatique des ordures Nix
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+  nix.gc.options = "--delete-older-than +15";
 }
