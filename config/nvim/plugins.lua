@@ -19,4 +19,7 @@ return {
     require("plugins.copilot-chat"),
     require("plugins.undotree"),
     require("plugins.orgmode"),
+    require("plugins.noirblaze"),
+    require("plugins.sunbather"),
+    require("plugins.pinkmare"),
 }

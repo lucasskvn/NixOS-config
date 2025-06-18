@@ -8,6 +8,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.g.have_nerd_font = false
+vim.opt.relativenumber = true
 
 vim.keymap.set('n', '<C-c><C-h>', ':EpiHeader<CR>')
 vim.keymap.set('n', '<C-c><C-c>', ':w <bar> Compile<CR>')
