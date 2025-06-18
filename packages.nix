@@ -60,4 +60,5 @@ with pkgs; [
     jftui
     veracrypt
     obsidian
+    pavucontrol
 ]
