@@ -69,4 +69,6 @@ with pkgs; [
     pacman
     pkgs.nerd-fonts.fira-code
     pkgs.nerd-fonts.iosevka
+    tmux
+    docker
 ]

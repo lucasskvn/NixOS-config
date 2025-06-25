@@ -8,4 +8,6 @@ swww init &
 
 waybar &
 
+exec ~/.config/waypaper/wallpaper.sh
+
 dunst

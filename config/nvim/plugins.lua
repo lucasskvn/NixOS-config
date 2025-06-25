@@ -22,4 +22,5 @@ return {
     require("plugins.noirblaze"),
     require("plugins.sunbather"),
     require("plugins.pinkmare"),
+    require("plugins.epi-quickfix"),
 }

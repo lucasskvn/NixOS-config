@@ -42,4 +42,7 @@
   nix.gc.options = "--delete-older-than +15";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  users.users.lucasskvn.extraGroups = [ "docker" "networkmanager" "wheel" ];
+  virtualisation.docker.enable = true;
 }
