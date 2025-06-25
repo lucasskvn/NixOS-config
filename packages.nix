@@ -61,4 +61,12 @@ with pkgs; [
     veracrypt
     obsidian
     pavucontrol
+    mullvad-vpn
+    pywal
+    waypaper
+    jq
+    nemo
+    pacman
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.iosevka
 ]

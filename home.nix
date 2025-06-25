@@ -13,19 +13,19 @@ in
 
   home.sessionPath = [ "/home/lucasskvn/my_scripts" ];
 
-  programs.hyprlock = {
-    enable = true;
-    settings = {
-      background = [
-        {
-          monitor = "eDP-1";
-          path = "/home/lucasskvn/Wallpapers/lock.jpg";
-          blur_passes = 0;
-          brightness = 1.0;
-        }
-      ];
-    };
-  };
+  # programs.hyprlock = {
+  #   enable = true;
+  #   settings = {
+  #     background = [
+  #       {
+  #         monitor = "eDP-1";
+  #         path = "/home/lucasskvn/Wallpapers/lock.jpg";
+  #         blur_passes = 0;
+  #         brightness = 1.0;
+  #       }
+  #     ];
+  #   };
+  # };
 
   # Exemple : passer les secrets comme variables d'environnement
   home.sessionVariables = {
