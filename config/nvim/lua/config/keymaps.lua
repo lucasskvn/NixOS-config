@@ -8,12 +8,13 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.g.have_nerd_font = false
-vim.opt.relativenumber = true
+vim.opt.number = true         -- Affiche le numéro absolu sur la ligne courante
+vim.opt.relativenumber = true -- Affiche les numéros relatifs ailleurs
 
 vim.keymap.set('n', '<C-c><C-h>', ':EpiHeader<CR>')
 vim.keymap.set('n', '<C-c><C-c>', ':w <bar> Compile<CR>')
 vim.keymap.set('n', '<leader>gb', ':GotoLine<CR>')
-vim.keymap.set('n', '<esc><esc>', ':noh<CR>')
+vim.keymap.set('n', '<esc>', ':noh<CR>')
 vim.keymap.set('n', '<leader>w', ':w<CR>')
 
 -- Snacks keymaps
@@ -163,3 +164,8 @@ vim.keymap.set("n", "<leader>'", function() require("harpoon.ui").nav_file(4) en
 
 vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>', { desc = "Toggle Undotree" })
 vim.keymap.set('n', '<leader>U', '<cmd>UndotreeFocus<CR>', { desc = "Focus Undotree" })
+
+-- Bufferline
+vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<leader><Tab>', ':tabnew<CR>', { desc = "Nouvel onglet" })

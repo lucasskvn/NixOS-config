@@ -11,7 +11,7 @@ in
   home.packages = import ./packages.nix { inherit pkgs; };
   imports = [ ./dotfiles.nix ];
 
-  home.sessionPath = [ "/home/lucasskvn/my_scripts" ];
+  home.sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
 
   # programs.hyprlock = {
   #   enable = true;

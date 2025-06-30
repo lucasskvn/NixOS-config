@@ -71,4 +71,12 @@ with pkgs; [
     pkgs.nerd-fonts.iosevka
     tmux
     docker
+    neomutt
+    isync
+    msmtp
+    pass
+    gettext
+    mutt-wizard
+    gnupg1
+    pinentry
 ]
