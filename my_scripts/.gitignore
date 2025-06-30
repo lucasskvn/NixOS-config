@@ -1,0 +1,11 @@
+*.o
+*.out
+*.lib
+*.a
+*.swp
+*.tmp
+*.gch
+*.gcda
+*.gcno
+.vscode
+coding-style-reports.log

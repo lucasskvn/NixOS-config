@@ -14,7 +14,6 @@
       ./network.nix
       ./locales.nix
       ./fonts.nix
-      <home-manager/nixos>
     ];
 
   # Autoriser les paquets non libres pour le système

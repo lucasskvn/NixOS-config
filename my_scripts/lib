@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -n "$@" ];
+then
+    cp -r ~/delivery/my_lib/lib $1
+    cp -r ~/delivery/my_lib/include $1
+    cp -r ~/delivery/my_lib/Makefile $1
+    cp -r ~/delivery/my_lib/.gitignore $1
+fi

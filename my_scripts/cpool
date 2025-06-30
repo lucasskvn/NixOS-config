@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ -n "$@" ];
+then
+    cd ~/delivery/B-CPE-100-LYN-1-1-cpoolday$1-lucas.sangkhavongs/
+fi
