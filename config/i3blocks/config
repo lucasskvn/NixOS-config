@@ -1,0 +1,72 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=/etc/nixos/config/i3blocks/scripts/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+# Mémoire RAM
+[memory]
+label=
+interval=30
+
+# Utilisation CPU
+[cpu_usage]
+label=
+interval=10
+
+# Charge système
+[load_average]
+label=
+interval=10
+
+# Volume audio
+[volume]
+label=
+interval=once
+signal=10
+
+# Batterie (si portable)
+[battery]
+label=
+interval=30
+
+# Réseau (interface par défaut)
+[iface]
+label=
+interval=10
+
+# Date et heure
+[time]
+label=
+command=date '+%a %d/%m %H:%M'
+interval=5
+
+# Espace disque sur /
+[disk]
+label=
+interval=60

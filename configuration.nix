@@ -14,6 +14,7 @@
       ./network.nix
       ./locales.nix
       ./fonts.nix
+      <home-manager/nixos>
     ];
 
   # Autoriser les paquets non libres pour le système
@@ -31,6 +32,7 @@
   # Variables d'environnement
   environment.variables = {
     NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
   services.mullvad-vpn.enable = true;
@@ -44,4 +46,13 @@
 
   users.users.lucasskvn.extraGroups = [ "docker" "networkmanager" "wheel" ];
   virtualisation.docker.enable = true;
+
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "modesetting" ];
+  };
+
+  # Supprime complètement la section hardware.nvidia si tu n'as pas de carte NVIDIA
+
+  programs.hyprland.enable = true;
 }

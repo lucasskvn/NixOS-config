@@ -3,8 +3,26 @@
 {
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.gdm.wayland = false;
   services.xserver.desktopManager.gnome.enable = true;
-  programs.hyprland.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  # Active DWM
+  services.xserver.windowManager.dwm.enable = true;
+  services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
+    src = ./config/suckless/dwm;
+    patches = [
+      # (pkgs.fetchpatch {
+      #   url = "https://dwm.suckless.org/patches/colorschemes/dwm-colorschemes-6.5.diff";
+      #   sha256 = "0086yfb45vzvvnw9mgx0nijwlaxx1kp8vrgl5iinvdsa3czm7hyi";
+      # })
+    ];
+  };
+
+  # # Active i3
+  # services.xserver.windowManager.i3.enable = true;
+
+  # # Active Hyprland
+  # programs.hyprland.enable = true;
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }

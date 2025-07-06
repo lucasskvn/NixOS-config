@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.kernelPackages = pkgs.linuxPackages;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/7cdb07fc-260e-4ca1-9590-4fe6109bf5c2";
@@ -36,5 +37,7 @@
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = true;
+
+  # services.xserver.videoDrivers = [ "intel" ];
 }
