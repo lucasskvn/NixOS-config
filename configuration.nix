@@ -55,4 +55,17 @@
   # Supprime complètement la section hardware.nvidia si tu n'as pas de carte NVIDIA
 
   programs.hyprland.enable = true;
+
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/home/lucasskvn/Musique"; # adapte ce chemin si besoin
+    user = "lucasskvn";
+  };
+
+  security.wrappers.slock = {
+    source = "${pkgs.slock}/bin/slock";
+    owner = "root";
+    group = "root";
+    setuid = true;
+  };
 }

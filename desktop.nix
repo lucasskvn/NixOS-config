@@ -11,10 +11,10 @@
   services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
     src = ./config/suckless/dwm;
     patches = [
-      # (pkgs.fetchpatch {
-      #   url = "https://dwm.suckless.org/patches/colorschemes/dwm-colorschemes-6.5.diff";
-      #   sha256 = "0086yfb45vzvvnw9mgx0nijwlaxx1kp8vrgl5iinvdsa3czm7hyi";
-      # })
+      (pkgs.fetchpatch {
+        url = "https://dwm.suckless.org/patches/amixer-integration/dwm-amixer-integration-6.5.diff";
+        sha256 = "0gkpx2d8d2ypbjsqzddrx0zmiqs327aiayxnrqmk2kpqlclqj09s";
+      })
     ];
   };
 

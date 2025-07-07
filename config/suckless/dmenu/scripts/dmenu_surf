@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# filepath: /etc/nixos/config/suckless/dmenu/scripts/dmenu_surf
+
+SITES_FILE="$HOME/.surf_sites"
+
+if [ ! -f "$SITES_FILE" ]; then
+  notify-send "Fichier $SITES_FILE introuvable"
+  exit 1
+fi
+
+site=$(cat "$SITES_FILE" | dmenu -i -l 10 -p "Choisir un site :")
+[ -n "$site" ] && surf "$site" &

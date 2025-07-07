@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# filepath: /etc/nixos/config/suckless/dmenu/scripts/dmenu_mpv
 
-FOLDER="$HOME/Vidéos/"
+FOLDER="/mnt/nas/media/movies/"
 
 openvid () {
-  NAME="$(find "$FOLDER" -maxdepth 1 -type f -printf '%f\n' | dmenu -l 15)" || exit 0
+  NAME="$(find "$FOLDER" -type f | sed "s|$FOLDER||" | dmenu -l 15)" || exit 0
   [ -n "$NAME" ] && mpv "$FOLDER$NAME" >/dev/null 2>&1
 }
 

@@ -64,15 +64,47 @@ with pkgs; [
         ];
     }))
     (dmenu.overrideAttrs (oldAttrs: rec {
-        src = ./config/suckless/dmenu;
+        version = "5.2";
+        src = pkgs.fetchurl {
+          url = "https://dl.suckless.org/tools/dmenu-5.2.tar.gz";
+          sha256 = "14ipsirsfqbyqlnna0k8yla5j6mrbgh3gd9d4xrg4h4inmvwmm6l";
+        };
         patches = [
-          # (fetchpatch {
-          #   url = "https://gitlab.freedesktop.org/wayland/dmenu/-/raw/refs/heads/master/patches/dmenu-wayland-0.8.5.diff";
-          #   sha256 = "1a97q2hv63j2nq6vw924a6si8wg4903rbkrmml31zlhjgl9nbmq4";
-          # })
+          (fetchpatch {
+            url = "https://tools.suckless.org/dmenu/patches/center/dmenu-center-5.2.diff";
+            sha256 = "1jck88ypx83b73i0ys7f6mqikswgd2ab5q0dfvs327gsz11jqyws";
+          })
         ];
     }))
-    slstatus
+    (sent.overrideAttrs (oldAttrs: rec {
+        patches = [
+          (fetchpatch {
+            url = "https://tools.suckless.org/sent/patches/progress-bar/sent-progress-bar-1.0.diff";
+            sha256 = "0l7zva7nghmslrfs65grmdv54byygng8xdzzq61q42w9b4g5vbdc";
+          })
+        ];
+    }))
+    (slock.overrideAttrs (oldAttrs: rec {
+        patches = [
+        ];
+    }))
+    (slstatus.overrideAttrs (oldAttrs: rec {
+        src = ./config/suckless/slstatus;
+        patches = [
+          (fetchpatch {
+            url = "https://tools.suckless.org/slstatus/patches/backlight/slstatus-backlight-4bd78c9.diff";
+            sha256 = "13v8pqnpzb3agz3iyg0gwfrpwsdqhzf9s13z4b956pnsy4i3hibn";
+          })
+          (fetchpatch {
+            url = "https://tools.suckless.org/slstatus/patches/alsa/slstatus-alsa-4bd78c9.patch";
+            sha256 = "03jn956qlfkawlpasdhxl4069nnrr56psa9my60nyvynxq1gkb4r";
+          })
+        ];
+    }))
+    (surf.overrideAttrs (oldAttrs: rec {
+        patches = [
+        ];
+    }))
     feh
     # I3
     i3
@@ -96,6 +128,7 @@ with pkgs; [
     lazygit
     gcc
     mpv
+    mpc
     spotifyd
     neofetch
     jp2a
