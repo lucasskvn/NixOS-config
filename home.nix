@@ -39,4 +39,8 @@ in
     JFTUI_VERSION = secrets.jftui_version;
     JFTUI_TRY_LOCAL_FILES = builtins.toString secrets.jftui_try_local_files;
   };
+
+  home.file.".xprofile".text = ''
+    slstatus &
+  '';
 }

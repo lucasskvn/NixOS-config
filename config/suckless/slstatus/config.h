@@ -71,8 +71,8 @@ static const struct arg args[] = {
     { battery_perc,       "  %s%% | ",   "BAT1"     }, // batterie
     { cpu_perc,           " %s%% | ",    NULL       }, // CPU
     { ram_perc,           " %s%% | ",    NULL       }, // RAM
+    { run_command,        "🛡 %s | ",     "[ \"$(mullvad status | grep -c '^Connected')\" -eq 1 ] && echo ON || echo OFF" }, // Mullvad VPN
     // { vol_perc,           " %s%% | ",    "/dev/mixer" }, // volume (ALSA)
     { load_avg,           " %s | ",      NULL       }, // charge moyenne
     { datetime,           " %s",         "%a %d/%m %H:%M" }, // date et heure
 };
-;

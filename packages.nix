@@ -162,4 +162,5 @@ with pkgs; [
     librewolf
     ncurses
     pkgs.linuxPackages.nvidia_x11
+    blueman
 ]

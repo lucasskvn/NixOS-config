@@ -2,7 +2,7 @@
 
 # slightly scuffed wallpaper picker menu for use with pywal - uses nsxiv if installed, otherwise uses dmenu
 
-FOLDER=~/pics # wallpaper folder
+FOLDER=~/Wallpapers # wallpaper folder
 SCRIPT=~/scripts/pywal16 # script to run after wal for refreshing programs, etc.
 
 
