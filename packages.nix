@@ -7,6 +7,7 @@ with pkgs; [
     neovim
     fzf
     proton-pass
+    protonvpn-gui
     git
     discord
     spotify
@@ -19,31 +20,33 @@ with pkgs; [
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       })
     )
-    pkgs.dunst
-    libnotify
-    swww
-    rofi-wayland
-    rofi-power-menu
-    hyprcursor
-    hyprshot
-    hyprpaper
-    hyprlock
-    waypaper
+    arandr
+    # Hyprland
+    # pkgs.dunst
+    # libnotify
+    # swww
+    # rofi-wayland
+    # rofi-power-menu
+    # hyprcursor
+    # hyprshot
+    # hyprpaper
+    # hyprlock
+    # waypaper
+    # hyprland
+    # nitrogen
+    # libgccjit
+    ripgrep
+    flameshot
+    scrot
+    # mesa
+    # libglvnd
+    # wayland-utils
+    pkg-config
+    gnumake
     xorg.libX11
     xorg.libXft
     xorg.libXinerama
-    pkg-config
-    # Hyprland
-    hyprland
-    nitrogen
-    arandr
-    gnumake
-    libgccjit
-    ripgrep
-    mesa
-    libglvnd
-    wayland-utils
-    # dwm
+    # dwm / SUCKLESS
     imlib2
     zlib
     pciutils
@@ -105,29 +108,33 @@ with pkgs; [
         patches = [
         ];
     }))
+    sxiv
+    lf
+    zathura
     feh
-    # I3
-    i3
-    i3blocks
-    i3status
-    i3lock
-    alsa-utils
-    acpi
     networkmanager
-    playerctl
     brightnessctl
-    pamixer
-    nwg-look
     xclip
-    pkgs.catppuccin-cursors
+    # I3
+    # i3
+    # i3blocks
+    # i3status
+    # i3lock
+    # alsa-utils
+    # acpi
+    # playerctl
+    # pamixer
+    # nwg-look
+    # pkgs.catppuccin-cursors
+    # lazygit
     vscode
     emacs
     nfs-utils
     rsync
     wget
-    lazygit
     gcc
     mpv
+    ffmpeg
     mpc
     spotifyd
     neofetch
@@ -138,14 +145,12 @@ with pkgs; [
     jellyfin-tui
     jellyfin
     jftui
-    veracrypt
     obsidian
     pavucontrol
     mullvad-vpn
     pywal
     jq
     nemo
-    pacman
     pkgs.nerd-fonts.fira-code
     pkgs.nerd-fonts.iosevka
     tmux
@@ -162,5 +167,6 @@ with pkgs; [
     librewolf
     ncurses
     pkgs.linuxPackages.nvidia_x11
-    blueman
+    steam
+    nodejs_24
 ]

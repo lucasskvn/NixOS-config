@@ -114,7 +114,7 @@ vim.keymap.set({ 'n', 't' }, ']]', function() Snacks.words.jump(vim.v.count1) en
 vim.keymap.set({ 'n', 't' }, '[[', function() Snacks.words.jump(-vim.v.count1) end, { desc = "Prev Reference" })
 
 -- Nvim-tree
-vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>', { noremap = true, silent = true, desc = "Toggle Nvim Tree" })
+vim.keymap.set('n', '<leader>t', ':Oil<CR>', { noremap = true, silent = true, desc = "Toggle Nvim Tree" })
 
 -- Map les touches spéciales (&, é, ", ', (, -, è, _, ç, à) aux chiffres (1-0)
 local special_to_digit = {

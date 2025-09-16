@@ -56,6 +56,8 @@
 
   programs.hyprland.enable = true;
 
+  programs.steam.enable = true;
+
   services.mpd = {
     enable = true;
     musicDirectory = "/home/lucasskvn/Musique"; # adapte ce chemin si besoin

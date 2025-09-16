@@ -6,14 +6,14 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = {
-      enabled = true,
+      enabled = false,
     sections = {
       { section = "header" },
       { section = "keys", gap = 1, padding = 1 },
       { section = "startup" },
     },
     },
-    explorer = { enabled = true },
+    explorer = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = {

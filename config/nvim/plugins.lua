@@ -24,4 +24,5 @@ return {
     require("plugins.pinkmare"),
     require("plugins.epi-quickfix"),
     require("plugins.bufferline.lua")
+    require("plugins.oil"),
 }

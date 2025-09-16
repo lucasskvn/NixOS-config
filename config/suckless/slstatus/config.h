@@ -74,5 +74,6 @@ static const struct arg args[] = {
     { run_command,        "🛡 %s | ",     "[ \"$(mullvad status | grep -c '^Connected')\" -eq 1 ] && echo ON || echo OFF" }, // Mullvad VPN
     // { vol_perc,           " %s%% | ",    "/dev/mixer" }, // volume (ALSA)
     { load_avg,           " %s | ",      NULL       }, // charge moyenne
-    { datetime,           " %s",         "%a %d/%m %H:%M" }, // date et heure
+    { datetime,           " %s | ",         "%a %d/%m %H:%M" }, // date et heure
+    { run_command,        "%s", "echo stan aespa" },
 };

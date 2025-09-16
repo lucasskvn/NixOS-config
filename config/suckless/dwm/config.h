@@ -80,6 +80,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("/etc/nixos/config/suckless/dmenu/scripts/dmenu_sys") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("/etc/nixos/config/suckless/dmenu/scripts/dmenu_surf") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("flameshot gui") },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_agrave, view,           {.ui = ~0 } },
