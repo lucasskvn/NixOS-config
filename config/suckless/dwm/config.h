@@ -1,25 +1,38 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char *fonts[]          = { "JetBrains Mono Nerd Font:style=Medium:size=11", "Font Awesome 6 Free:style=Solid:size=10", "Noto Color Emoji:size=10" };
+static const char dmenufont[]       = "JetBrains Mono Nerd Font:style=Medium:size=11";
+
+/* Nord color scheme */
+static const char nord0[]           = "#2e3440"; /* polar night */
+static const char nord1[]           = "#3b4252"; /* polar night */
+static const char nord2[]           = "#434c5e"; /* polar night */
+static const char nord3[]           = "#4c566a"; /* polar night */
+static const char nord4[]           = "#d8dee9"; /* snow storm */
+static const char nord5[]           = "#e5e9f0"; /* snow storm */
+static const char nord6[]           = "#eceff4"; /* snow storm */
+static const char nord7[]           = "#8fbcbb"; /* frost */
+static const char nord8[]           = "#88c0d0"; /* frost */
+static const char nord9[]           = "#81a1c1"; /* frost */
+static const char nord10[]          = "#5e81ac"; /* frost */
+static const char nord11[]          = "#bf616a"; /* aurora */
+static const char nord12[]          = "#d08770"; /* aurora */
+static const char nord13[]          = "#ebcb8b"; /* aurora */
+static const char nord14[]          = "#a3be8c"; /* aurora */
+static const char nord15[]          = "#b48ead"; /* aurora */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { nord4,     nord0,     nord2 },
+	[SchemeSel]  = { nord6,     nord10,    nord8  },
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "󰅴 ", "󰖟", "󰈹", "󰎆", "󰏃", "󰓇", "󰊻", "󰍡", "󰑴" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -39,9 +52,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "󰙀",      tile },    /* first entry is default */
+	{ "󰖲",      NULL },    /* no layout function means floating behavior */
+	{ "󱖇",      monocle },
 };
 
 /* key definitions */
@@ -58,7 +71,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 // static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *dmenucmd[] = { "dmenu_run", "-l", "10", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-l", "10", "-m", dmenumon, "-fn", dmenufont, "-nb", nord0, "-nf", nord4, "-sb", nord10, "-sf", nord6, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {

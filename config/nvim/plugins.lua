@@ -16,13 +16,12 @@ return {
     require("plugins.lspconfig"),
     require("plugins.luasnip"),
     require("plugins.autopairs"),
-    require("plugins.copilot-chat"),
     require("plugins.undotree"),
     require("plugins.orgmode"),
     require("plugins.noirblaze"),
     require("plugins.sunbather"),
     require("plugins.pinkmare"),
     require("plugins.epi-quickfix"),
-    require("plugins.bufferline.lua")
+    require("plugins.bufferline.lua"),
     require("plugins.oil"),
 }

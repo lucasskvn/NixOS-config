@@ -1,0 +1,88 @@
+#!/bin/bash
+# ~/.config/lf/preview
+# File preview script for lf
+
+# Cache
+CACHE="$HOME/.cache/lf/thumbnail.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | cut -d' ' -f1)"
+
+handle_extension() {
+    case "${1##*.}" in
+        # Archive formats
+        a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
+        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)
+            atool --list -- "$1" | head -n 100 && exit 0
+            exit 1;;
+        rar)
+            unrar lt -p- -- "$1" | head -n 100 && exit 0
+            exit 1;;
+        7z)
+            7z l -p -- "$1" | head -n 100 && exit 0
+            exit 1;;
+
+        # PDF
+        pdf)
+            pdftoppm -jpeg -f 1 -singlefile "$1" "$CACHE" && \
+            image "$CACHE.jpg" "$2" "$3" "$4" "$5" && exit 0
+            pdftotext -l 10 -nopgbrk -q -- "$1" - | head -n 100 && exit 0
+            exit 1;;
+
+        # Audio
+        aac|flac|m4a|mid|midi|mpa|mp2|mp3|ogg|wav|wma)
+            mediainfo "$1" && exit 0
+            exiftool "$1" && exit 0
+            exit 1;;
+
+        # Video
+        avi|mp4|mkv|mov|mpeg|mpg|webm|wmv)
+            mediainfo "$1" && exit 0
+            exiftool "$1" && exit 0
+            exit 1;;
+
+        # Image
+        jpg|jpeg|png|bmp|gif|tiff|webp)
+            chafa --fill=space --symbols=block -c 256 -s 80x"$3" "$1" && exit 0
+            exiftool "$1" && exit 0
+            exit 1;;
+
+        # Office files
+        doc|docx|xls|xlsx|ppt|pptx)
+            file -b "$1" && exit 0
+            exit 1;;
+    esac
+}
+
+handle_mime() {
+    local mimetype="${1}"
+    case "${mimetype}" in
+        # Text
+        text/*)
+            cat "$2" | head -n 100 && exit 0
+            exit 1;;
+            
+        # Image
+        image/*)
+            chafa --fill=space --symbols=block -c 256 -s 80x"$3" "$2" && exit 0
+            exiftool "$2" && exit 0
+            exit 1;;
+            
+        # Video and audio
+        video/*|audio/*)
+            mediainfo "$2" && exit 0
+            exiftool "$2" && exit 0
+            exit 1;;
+    esac
+}
+
+FILE_PATH="$1"
+HEIGHT="$4"
+
+# Get file MIME type
+MIMETYPE=$(file --mime-type -b "$FILE_PATH")
+
+handle_mime "$MIMETYPE" "$FILE_PATH" "$HEIGHT"
+handle_extension "$FILE_PATH"
+
+# Fallback
+echo '----- File Type Classification -----'
+file --dereference --brief -- "$FILE_PATH"
+exit 0

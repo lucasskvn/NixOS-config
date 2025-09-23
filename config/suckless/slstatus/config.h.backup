@@ -1,6 +1,17 @@
 /* See LICENSE file for copyright and license details. */
 
-/* interval between updates (in ms) */
+/* intestatic const struct arg args[] = {
+    /* function           format           argument */
+    { wifi_essid,         "󰤨 %s",         "wlo1"    }, // nom du réseau WiFi
+    { wifi_perc,          " %s%%",         "wlo1"    }, // puissance WiFi
+    { battery_perc,       " 󰁹 %s%%",       "BAT1"     }, // batterie
+    { cpu_perc,           " 󰻠 %s%%",       NULL       }, // CPU
+    { ram_perc,           " 󰍛 %s%%",       NULL       }, // RAM
+    { run_command,        " 󰒃 %s",         "[ \"$(mullvad status | grep -c '^Connected')\" -eq 1 ] && echo '󰦝' || echo '󰦞'" }, // Mullvad VPN
+    { run_command,        " 󰕾 %s%%",       "pamixer --get-volume" }, // volume PulseAudio
+    { temp,               " 󰔏 %s°C",       "/sys/class/thermal/thermal_zone0/temp" }, // température
+    { datetime,           " 󰃰 %s ",        "%a %d/%m %H:%M" }, // date et heure
+};updates (in ms) */
 const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
@@ -65,6 +76,15 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+    /* function           format           argument */
+    { wifi_essid,         " %s | ",      "wlo1"    }, // nom du réseau WiFi
+    { wifi_perc,          "%3s%% | ",     "wlo1"    }, // puissance WiFi
+    { battery_perc,       "  %s%% | ",   "BAT1"     }, // batterie
+    { cpu_perc,           " %s%% | ",    NULL       }, // CPU
+    { ram_perc,           " %s%% | ",    NULL       }, // RAM
+    { run_command,        "🛡 %s | ",     "[ \"$(mullvad status | grep -c '^Connected')\" -eq 1 ] && echo ON || echo OFF" }, // Mullvad VPN
+    // { vol_perc,           " %s%% | ",    "/dev/mixer" }, // volume (ALSA)
+    { load_avg,           " %s | ",      NULL       }, // charge moyenne
+    { datetime,           " %s | ",         "%a %d/%m %H:%M" }, // date et heure
+    { run_command,        "%s", "echo stan aespa " },
 };

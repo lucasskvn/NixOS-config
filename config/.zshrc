@@ -133,3 +133,5 @@ zle -N fg-widget
 
 # Associer CTRL+F au widget (CTRL+F = ^F)
 bindkey '^F' fg-widget
+
+eval "$(starship init zsh)"

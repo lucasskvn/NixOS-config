@@ -1,0 +1,8 @@
+#!/bin/bash
+# ~/.config/lf/cleaner
+# File previewer cleanup script for lf
+
+# Remove the last preview file if it exists
+if [ -n "$FIFO_UEBERZUG" ]; then
+    printf '{"action": "remove", "identifier": "PREVIEW"}\n' > "$FIFO_UEBERZUG"
+fi

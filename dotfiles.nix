@@ -13,4 +13,8 @@
   home.file.".p10k.zsh".source = ./config/.p10k.zsh;
   home.file.".config/neofetch".source = ./config/neofetch;
   home.file.".local/bin".source = ./config/my_scripts;
+  home.file.".config/zathura".source = ./config/zathura;
+  home.file.".tmux.conf".source = ./config/tmux/tmux.conf;
+  home.file.".config/starship.toml".source = ./config/starship/starship.toml;
+  home.file.".config/lf".source = ./config/lf;
 }

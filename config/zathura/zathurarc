@@ -1,0 +1,36 @@
+# Zathura configuration file
+
+# Settings
+set selection-clipboard clipboard
+set window-title-basename true
+set statusbar-home-tilde true
+set adjust-open "best-fit"
+
+# Key bindings
+map j scroll down
+map k scroll up
+map h scroll left
+map l scroll right
+map <C-d> scroll half-down
+map <C-u> scroll half-up
+map r reload
+map R rotate
+
+# Appearance
+set font "monospace 11"
+set default-bg "#282828" # Dark background
+set default-fg "#ebdbb2" # Light foreground
+set recolor-darkcolor "#dcdccc"
+set recolor-lightcolor "#1f1f1f"
+set statusbar-bg "#282828"
+set statusbar-fg "#ebdbb2"
+
+# PDF handling
+set zoom-min 10
+set guioptions ""      # Remove GUI elements like statusbar
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-step 50
+
+# Use zathura in dark mode by default
+# set recolor "true"

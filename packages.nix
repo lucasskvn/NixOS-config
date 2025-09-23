@@ -95,14 +95,6 @@ with pkgs; [
     (slstatus.overrideAttrs (oldAttrs: rec {
         src = ./config/suckless/slstatus;
         patches = [
-          (fetchpatch {
-            url = "https://tools.suckless.org/slstatus/patches/backlight/slstatus-backlight-4bd78c9.diff";
-            sha256 = "13v8pqnpzb3agz3iyg0gwfrpwsdqhzf9s13z4b956pnsy4i3hibn";
-          })
-          (fetchpatch {
-            url = "https://tools.suckless.org/slstatus/patches/alsa/slstatus-alsa-4bd78c9.patch";
-            sha256 = "03jn956qlfkawlpasdhxl4069nnrr56psa9my60nyvynxq1gkb4r";
-          })
         ];
     }))
     (surf.overrideAttrs (oldAttrs: rec {
@@ -194,7 +186,6 @@ with pkgs; [
 
     # Multimedia
     vlc            # Alternative à mpv
-    gimp           # Édition d'images
     obs-studio     # Streaming/enregistrement
     
     # ============================================
