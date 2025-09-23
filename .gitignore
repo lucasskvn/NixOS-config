@@ -1,4 +1,5 @@
 *.swp
 *.swo
+secrets/
 secrets.nix
 flake.lock

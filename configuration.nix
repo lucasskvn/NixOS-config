@@ -38,11 +38,15 @@
   services.mullvad-vpn.enable = true;
 
   # Ajout de la configuration de la collecte automatique des ordures Nix
-  nix.gc.automatic = true;
-  nix.gc.dates = "weekly";
-  nix.gc.options = "--delete-older-than +15";
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.optimise.automatic = true;
 
   users.users.lucasskvn.extraGroups = [ "docker" "networkmanager" "wheel" ];
   virtualisation.docker.enable = true;
@@ -70,4 +74,29 @@
     group = "root";
     setuid = true;
   };
+
+  # Auto-mount USB
+  services.udisks2.enable = true;
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
+  # Audio amélioré
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+
+  # Impression
+  services.printing.enable = true;
+  services.avahi.enable = true; # Pour découverte réseau
+
+  # Firewall intelligent
+  networking.firewall.allowPing = true;
+
+  # SSD optimisation
+  services.fstrim.enable = true;
 }

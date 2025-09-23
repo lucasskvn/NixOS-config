@@ -46,6 +46,7 @@ with pkgs; [
     xorg.libX11
     xorg.libXft
     xorg.libXinerama
+    zeal
     # dwm / SUCKLESS
     imlib2
     zlib
@@ -169,4 +170,39 @@ with pkgs; [
     pkgs.linuxPackages.nvidia_x11
     steam
     nodejs_24
+
+    # Outils de développement
+    lazygit        # Git TUI (déjà commenté)
+    btop           # Meilleur que htop
+    dust           # Alternative à du
+    fd             # Alternative à find
+    bat            # Alternative à cat avec syntax highlighting
+    delta          # Git diff viewer
+    starship       # Prompt shell moderne
+
+    # Outils système
+    tree           # Vue arborescente
+    unzip          # Archives
+    curl           # HTTP client
+    jq             # JSON processor (déjà présent)
+    yq             # YAML processor
+    htop           # Monitoring système
+
+    # Éditeurs/IDE
+    helix          # Éditeur moderne
+    zed            # Éditeur collaboratif
+
+    # Multimedia
+    vlc            # Alternative à mpv
+    gimp           # Édition d'images
+    obs-studio     # Streaming/enregistrement
+    
+    # ============================================
+    # GESTION MONITEURS (pour accessnthmonitor)
+    # ============================================
+    arandr          # Interface graphique pour xrandr
+    xorg.xrandr     # Outil ligne de commande
+    autorandr       # Profils automatiques moniteurs
+    xorg.xdpyinfo   # Informations display
+    xorg.xwininfo   # Informations fenêtres
 ]
