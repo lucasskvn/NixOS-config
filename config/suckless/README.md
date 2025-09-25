@@ -31,7 +31,6 @@ Cette configuration transforme votre environnement DWM en une interface moderne 
 - `󰍛` Usage RAM avec icône  
 - `󰒃` Status VPN Mullvad (󰦝/󰦞)
 - `󰕾` Volume audio
-- `󰔏` Température système
 - `󰃰` Date et heure
 
 ### 🖼️ Layout Indicators

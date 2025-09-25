@@ -4,138 +4,112 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
-
-# Disable the blank line at the start of the prompt
+# Gruvbox Rainbow preset
 add_newline = false
+palette = "gruvbox"
 
-# Replace the "❯" symbol in the prompt with "➜"
+format = """
+[](color_bg_1)\
+$os$username\
+$hostname\
+[](fg:color_bg_1 bg:color_bg_2)\
+$directory\
+[](fg:color_bg_2 bg:color_bg_3)\
+$git_branch$git_status\
+[](fg:color_bg_3 bg:color_bg_4)\
+$nodejs$python$rust$docker_context$nix_shell\
+[](fg:color_bg_4 bg:color_bg_5)\
+$time\
+[ ](fg:color_bg_5)\
+$line_break$character"""
+
+# Character
 [character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
+success_symbol = "[❯](bold fg:green)"
+error_symbol = "[❯](bold fg:red)"
 
-# Shows the username
+# User/Host (block 1)
 [username]
-style_user = "blue bold"
-style_root = "red bold"
-format = "[$user]($style) "
-disabled = false
 show_always = true
+format = "[ $user ]($style)"
+style_user = "bg:color_bg_1 fg:orange"
+style_root = "bg:color_bg_1 fg:red"
 
-# Shows the hostname
 [hostname]
 ssh_only = false
-format = "on [$hostname](bold yellow) "
-disabled = false
+format = "[ $hostname ]($style)"
+style = "bg:color_bg_1 fg:blue"
 
-# Shows current directory
+# New: OS badge
+[os]
+disabled = false
+format = "[ $symbol ]($style)"
+style = "bg:color_bg_1 fg:purple"
+
+# Directory (block 2)
 [directory]
 truncation_length = 3
 truncate_to_repo = true
-style = "bold cyan"
-format = "in [$path]($style) "
+format = "[ $path ]($style)"
+style = "bg:color_bg_2 fg:aqua"
 
-# Git configurations
+# Git (block 3)
 [git_branch]
-format = "at [$symbol$branch]($style) "
-symbol = "🌱 "
-style = "bold purple"
+symbol = " "
+format = "[ $symbol$branch ]($style)"
+style = "bg:color_bg_3 fg:yellow"
 
 [git_status]
-format = '([$all_status$ahead_behind]($style) )'
-style = "bold green"
-conflicted = "🏳"
-up_to_date = "✓"
-untracked = "🤷"
-ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
-stashed = "📦"
-modified = "📝"
-staged = '[++\($count\)](green)'
-renamed = "👅"
-deleted = "🗑"
+format = "[ $all_status$ahead_behind ]($style)"
+style = "bg:color_bg_3 fg:purple"
 
-# Package version display
-[package]
-format = "via [📦 $version](208 bold) "
-
-# Node.js version
+# Runtimes (block 4)
 [nodejs]
-format = "via [🟢 $version](bold green) "
-disabled = false
+format = "[  $version ]($style)"
+style = "bg:color_bg_4 fg:green"
 
-# Python version
 [python]
-format = "via [🐍 $version](bold blue) "
-disabled = false
+format = "[  $version ]($style)"
+style = "bg:color_bg_4 fg:yellow"
 
-# Rust version
 [rust]
-format = "via [🦀 $version](bold red) "
-disabled = false
+format = "[  $version ]($style)"
+style = "bg:color_bg_4 fg:orange"
 
-# Time module
+[docker_context]
+format = "[  $context ]($style)"
+style = "bg:color_bg_4 fg:aqua"
+
+# New: nix-shell indicator
+[nix_shell]
+symbol = ""
+format = "[ $symbol $state( $name) ]($style)"
+style = "bg:color_bg_4 fg:aqua"
+
+# Time (block 5)
 [time]
 disabled = false
-format = 'at [$time]($style) '
-time_format = "%T"
-style = "bold yellow"
+format = "[  $time ]($style)"
+time_format = "%R"
+style = "bg:color_bg_5 fg:blue"
 
-# Command duration
+# Optional: command duration (inline at right end of line if desired)
 [cmd_duration]
-min_time = 2000  # Show command duration after 2000 milliseconds (2 sec)
-format = "took [$duration](bold yellow) "
+min_time = 1500
+format = "took [$duration](fg:yellow) "
 
-# Nix shell indicator
-[nix_shell]
-disabled = false
-impure_msg = "[impure shell](bold red)"
-pure_msg = "[pure shell](bold green)"
-format = 'via [❄️ $state( \($name\))](bold blue) '
-
-# Docker context
-[docker_context]
-format = "via [🐋 $context](blue bold) "
-disabled = false
-
-# Shows status of background jobs
-[jobs]
-symbol = "✦"
-style = "bold blue"
-number_threshold = 1
-format = "[$symbol$number]($style) "
-
-# Battery configuration
-[battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
-
-[[battery.display]]
-threshold = 10
-style = "bold red"
-
-[[battery.display]]
-threshold = 30
-style = "bold yellow"
-
-# Prompt format
-format = """
-$username\
-$hostname\
-$directory\
-$git_branch\
-$git_status\
-$package\
-$nodejs\
-$python\
-$rust\
-$nix_shell\
-$docker_context\
-$time\
-$cmd_duration\
-$jobs\
-$line_break\
-$character"""
+# Gruvbox palette
+[palettes.gruvbox]
+color_bg_1 = "#3c3836"
+color_bg_2 = "#504945"
+color_bg_3 = "#665c54"
+color_bg_4 = "#7c6f64"
+color_bg_5 = "#928374"
+color_fg  = "#ebdbb2"
+red   = "#fb4934"
+green = "#b8bb26"
+yellow= "#fabd2f"
+blue  = "#83a598"
+purple= "#d3869b"
+aqua  = "#8ec07c"
+orange= "#fe8019"

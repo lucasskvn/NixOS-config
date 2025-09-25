@@ -14,6 +14,7 @@
       ./network.nix
       ./locales.nix
       ./fonts.nix
+      ./development.nix
       <home-manager/nixos>
     ];
 
@@ -99,4 +100,22 @@
 
   # SSD optimisation
   services.fstrim.enable = true;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc   # libstdc++, libgcc_s
+      zlib
+      zstd
+      bzip2
+      xz
+      glib
+      openssl
+      curl           # libcurl
+      libxml2
+      sqlite
+      nghttp2
+      icu
+    ];
+  };
 }

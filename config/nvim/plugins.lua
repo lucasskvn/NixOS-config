@@ -14,14 +14,17 @@ return {
     -- require("plugins.noice"), -- NAH
     require("plugins.harpoon"),
     require("plugins.lspconfig"),
+    require("plugins.lsp_signature"),
     require("plugins.luasnip"),
     require("plugins.autopairs"),
     require("plugins.undotree"),
-    require("plugins.orgmode"),
     require("plugins.noirblaze"),
     require("plugins.sunbather"),
     require("plugins.pinkmare"),
     require("plugins.epi-quickfix"),
     require("plugins.bufferline.lua"),
     require("plugins.oil"),
+    require("plugins.hover"),
+    -- Add devicons so icons show up across UI components
+    require("plugins.devicons"),
 }

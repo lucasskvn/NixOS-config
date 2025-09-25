@@ -66,5 +66,11 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
+	{ wifi_essid, "  %s ", "wlo1" },
+	{ wifi_perc, "(%s%%) | ", "wlo1" },
+	{ cpu_perc, "󰻠 %s%% | ", NULL },
+	{ ram_perc, "󰍛 %s%% | ", NULL },
+	{ disk_free, "󰋊 %s | ", "/" },
+	{ battery_perc, "󰁹 %s%% | ", "BAT1" },
 	{ datetime, "%s",           "%F %T" },
 };

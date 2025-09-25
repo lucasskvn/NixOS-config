@@ -13,7 +13,10 @@
   };
   
   # Starship prompt
-  programs.starship.enable = true;
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   
   # Direnv pour projets
   programs.direnv.enable = true;

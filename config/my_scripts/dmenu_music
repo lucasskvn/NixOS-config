@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+FOLDER="/home/lucasskvn/Musique"
+CURRENT_DIR=""
+
+browse_folders() {
+  local dir="${FOLDER%/}${CURRENT_DIR}"
+  local selection
+  
+  while true; do
+    local options=""
+    if [ -n "$CURRENT_DIR" ]; then
+      options="..\n"
+    fi
+
+    local display_path="${CURRENT_DIR:-/}"
+    selection=$(printf "$options$(find "$dir" -maxdepth 1 -mindepth 1 -printf "%f\n" | sort)" | dmenu -l 15 -p "🎵 $display_path") || exit 0
+    [ -z "$selection" ] && return
+    
+    if [ "$selection" = ".." ]; then
+      CURRENT_DIR=$(dirname "$CURRENT_DIR")
+      [ "$CURRENT_DIR" = "." ] && CURRENT_DIR=""
+      dir="${FOLDER%/}${CURRENT_DIR}"
+      continue
+    fi
+
+    local selected_path="$dir/$selection"
+
+    if [ -d "$selected_path" ]; then
+      if [ -z "$CURRENT_DIR" ]; then
+        CURRENT_DIR="/$selection"
+      else
+        CURRENT_DIR="$CURRENT_DIR/$selection"
+      fi
+      dir="${FOLDER%/}${CURRENT_DIR}"
+    else
+      vlc "$selected_path" >/dev/null 2>&1 &
+      return
+    fi
+  done
+}
+
+browse_folders

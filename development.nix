@@ -10,6 +10,20 @@
     # Node.js avec npm global
     npm.enable = true;
   };
+  
+  # Configuration spécifique pour Rustup
+  environment.shellInit = ''
+    export RUSTUP_HOME=$HOME/.rustup
+    export CARGO_HOME=$HOME/.cargo
+    export PATH=$PATH:$CARGO_HOME/bin
+  '';
+  
+  # NIX_LD est géré par programs.nix-ld (voir configuration.nix)
+  # Les variables suivantes ont été supprimées pour éviter les conflits:
+  # environment.variables = {
+  #   NIX_LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc pkgs.openssl ];
+  #   NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
+  # };
 
   # Services de développement
   services = {

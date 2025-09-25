@@ -5,6 +5,8 @@ with pkgs; [
     vim
     firefox
     neovim
+    jetbrains.rust-rover
+    rustup
     fzf
     proton-pass
     protonvpn-gui
@@ -16,6 +18,8 @@ with pkgs; [
     thunderbird
     zsh
     oh-my-zsh
+    zsh-autosuggestions
+    zsh-syntax-highlighting
     (pkgs.waybar.overrideAttrs (oldAttrs: {
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       })
@@ -196,4 +200,20 @@ with pkgs; [
     autorandr       # Profils automatiques moniteurs
     xorg.xdpyinfo   # Informations display
     xorg.xwininfo   # Informations fenêtres
+
+    # LSP
+    clang-tools                 # provides clangd
+    lua-language-server
+    stylua                      # Lua formatter
+    lldb                        # Debugger (use vscode-extensions.vadimcn.vscode-lldb for codelldb adapter)
+    # rust-analyzer             # Provided by rustup; removed to avoid bin collision
+    pyright
+    bash-language-server
+    nodePackages.typescript     # needed by typescript-language-server
+    nodePackages.typescript-language-server
+    vscode-langservers-extracted # HTML/CSS/JSON language servers
+    yaml-language-server
+    gopls
+    marksman
+    taplo                      # TOML LSP
 ]
